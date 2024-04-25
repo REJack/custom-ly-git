@@ -1,0 +1,21 @@
+Subject: [PATCH] feat: use config fg/bg for matrix colors
+---
+Index: src/draw.c
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/draw.c b/src/draw.c
+--- a/src/draw.c	(revision 4ee2b3ecc73882cfecdbe2162d4fece406a110e7)
++++ b/src/draw.c	(date 1714086390662)
+@@ -922,8 +922,8 @@
+ 		for (int i = 1; i <= buf->height; ++i)
+ 		{
+ 			uint32_t c;
+-			int fg = TB_GREEN;
+-			int bg = TB_DEFAULT;
++			int fg = config.fg;
++			int bg = config.bg;
+ 
+ 			if (s->grid[i][j].val == -1 || s->grid[i][j].val == ' ')
+ 			{

@@ -1,9 +1,9 @@
 # Maintainer: steffeno <steffeno dash etc at protonmail dot com>
 _pkgname=ly
-pkgname="$_pkgname"-git
+pkgname="$_pkgname"-modded-git
 pkgver=0.6.0.r4.g4ee2b3e
 pkgrel=1
-pkgdesc="TUI display manager"
+pkgdesc="TUI display manager, modded for Matrix Custom Colors"
 arch=(i686 x86_64 aarch64)
 url="https://github.com/fairyglade/$_pkgname"
 license=('custom:WTFPL')
@@ -24,6 +24,7 @@ pkgver() {
 prepare() {
     cd "$_pkgname"
     git submodule update --init --recursive
+    patch --forward --strip=1 --input=../../matrix_colors.patch
 }
 
 build() {
